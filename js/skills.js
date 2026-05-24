@@ -1,35 +1,39 @@
 import { skills } from "./data.js";
 
+// Grid container
 const skillsGrid = document.querySelector(".skills__grid");
+if (!skillsGrid) console.error("Skills grid not found");
 
-if (!skillsGrid) {
-  console.error("Skills grid not found");
-}
+// Create single skill card
+function createSkillCard(category, items) {
+  // Card wrapper
+  const card = document.createElement("div");
+  card.classList.add("skills_card");
 
-function createCard(category, items) {
-  const skillsCard = document.createElement("div");
-  skillsCard.classList.add("skills_card");
+  // Category title
+  const categoryEl = document.createElement("h3");
+  categoryEl.classList.add("skill__category");
+  categoryEl.textContent = category;
 
-  const skillsCategoryEl = document.createElement("h3");
-  skillsCategoryEl.classList.add("skill__category");
-  skillsCategoryEl.textContent = category;
+  // Tags container
+  const tagsContainer = document.createElement("div");
+  tagsContainer.classList.add("skill__tags");
 
-  const skillsTagsContainer = document.createElement("div");
-  skillsTagsContainer.classList.add("skill__tags");
-
-  items.forEach((i) => {
+  // Create tag for each skill
+  items.forEach((item) => {
     const tagEl = document.createElement("span");
     tagEl.classList.add("skill__tag");
-    tagEl.textContent = i;
-    skillsTagsContainer.append(tagEl);
+    tagEl.textContent = item;
+    tagsContainer.append(tagEl);
   });
 
-  skillsCard.append(skillsCategoryEl, skillsTagsContainer);
-  return skillsCard;
+  // Assemble card
+  card.append(categoryEl, tagsContainer);
+  return card;
 }
 
-const skillsCards = skills.map((card) => {
-  return createCard(card.category, card.items);
-});
-
-skillsGrid.append(...skillsCards);
+// Render all skill cards
+const skillCards = skills.map((skill) =>
+  createSkillCard(skill.category, skill.items),
+);
+skillsGrid.append(...skillCards);
