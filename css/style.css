@@ -494,6 +494,39 @@ img {
   color: var(--text-primary);
 }
 
+/* ===== TOASTER ===== */
+.toaster {
+  position: fixed;
+  bottom: 85%;
+  right: -400px;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  z-index: 9999;
+  transition: right 0.4s ease;
+  max-width: 400px;
+}
+
+.toaster.show {
+  right: 20px;
+}
+
+.toaster__msg {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.toaster--success {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+.toaster--error {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
 /* ===== MEDIA QUERIES (DESKTOP) ===== */
 @media (min-width: 768px) {
   :root {

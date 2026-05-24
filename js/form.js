@@ -41,12 +41,12 @@ form.addEventListener("submit", (e) => {
 
 // Show toaster notification
 function showToaster(message, type) {
-  toasterContainer.style.left = "0";
+  toasterContainer.style.right = "0px";
   toasterMsg.textContent = message;
   toasterMsg.classList.add(`toaster--${type}`);
 
   setTimeout(() => {
-    toasterContainer.style.left = "-300px";
+    toasterContainer.style.right = "-300px";
     toasterMsg.classList.remove("toaster--success", "toaster--error");
   }, 3000);
 }
