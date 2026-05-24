@@ -8,7 +8,7 @@
       content="Aniruddha Jadhav — Frontend Developer portfolio. React, JavaScript, HTML, CSS."
     />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -16,21 +16,19 @@
     <title>Aniruddha Jadhav | Frontend Developer</title>
   </head>
   <body>
-    <!-- NAVBAR -->
-
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
       <div class="nav__logo">AJ</div>
+
+      <!-- Navigation Links -->
       <ul class="nav__links" id="navLinks">
-        <button class="nav__close" id="navClose">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
         <li>
           <i class="fa-solid fa-house"></i>
           <a href="#home" class="active">Home</a>
         </li>
         <li>
-          <i class="fa-solid fa-folder-open"></i
-          ><a href="#projects">Projects</a>
+          <i class="fa-solid fa-folder-open"></i>
+          <a href="#projects">Projects</a>
         </li>
         <li>
           <i class="fa-solid fa-code"></i>
@@ -41,16 +39,24 @@
           <a href="#contact">Contact</a>
         </li>
       </ul>
-      <button class="nav__cta">Let's Talk</button>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="nav__cta">Let's Talk</a>
+
+      <!-- Mobile Menu Toggle -->
       <button class="nav__hamburger" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
       </button>
+      <button class="nav__close" id="navClose" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Mobile Menu Overlay -->
       <div class="nav__overlay"></div>
     </nav>
 
     <main>
-      <!--HERO SECTION   -->
-
+      <!-- ===== HERO SECTION ===== -->
       <section class="hero" id="home">
         <div class="hero__content">
           <p class="hero__tag">I am Aniruddha Jadhav</p>
@@ -61,33 +67,56 @@
             and writing code that's easy to read and maintain.
           </p>
 
+          <!-- Hero CTA Buttons -->
           <div class="hero__btns">
             <a href="#projects" class="btn btn--primary">View Projects</a>
-            <a href="#" class="btn btn--outline">Download CV</a>
+            <a href="./images/resume.pdf" download class="btn btn--outline"
+              >Download CV</a
+            >
           </div>
 
+          <!-- Social Links -->
           <div class="hero__social">
-            <i class="fa-brands fa-github"></i>
-            <i class="fa-brands fa-linkedin"></i>
-            <i class="fa-brands fa-x-twitter"></i>
+            <a
+              href="https://github.com/aniruddha-jadhav-15"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/aniruddhapj15/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://twitter.com/aniruddha_JS"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
           </div>
         </div>
 
+        <!-- Hero Image -->
         <div class="hero__image">
           <div class="hero__img">
-            <img src="./images/profile.jpg" alt="profile" />
+            <img src="./images/profile.jpg" alt="Aniruddha Jadhav Profile" />
           </div>
         </div>
       </section>
 
-      <!-- PROJECTS SECTION -->
-
+      <!-- ===== PROJECTS SECTION ===== -->
       <section class="project" id="projects">
         <h2 class="section__title">Projects</h2>
         <p class="section__subtitle">Things I've built so far</p>
         <div class="projects__grid"></div>
+
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/aniruddha-jadhav-15"
           target="_blank"
           class="btn btn--outline view--btn"
         >
@@ -95,41 +124,78 @@
         </a>
       </section>
 
-      <!-- SKILLS SECTION -->
-
+      <!-- ===== SKILLS SECTION ===== -->
       <section class="skills" id="skills">
         <h2 class="section__title">Skills</h2>
         <p class="section__subtitle">Technologies I work with</p>
-
         <div class="skills__grid"></div>
       </section>
 
-      <!--  CONTACT SECTION -->
-
+      <!-- ===== CONTACT SECTION ===== -->
       <section class="contact" id="contact">
         <h2 class="section__title">Contact</h2>
         <p class="section__subtitle">Let's work together</p>
 
-        <form class="contact__form" id="contactForm">
-          <input type="text" id="name" placeholder="Your Name" />
-          <input type="email" id="email" placeholder="Your Email" />
-          <input type="text" id="subject" placeholder="subject" />
-          <textarea id="message" placeholder="Your Message"> </textarea>
-
-          <button class="btn btn--primary">Send Message</button>
+        <!-- Contact Form with Formspree -->
+        <form
+          class="contact__form"
+          id="contactForm"
+          action="https://formspree.io/f/xzdwvwrz"
+          method="POST"
+          novalidate
+        >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          />
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            required
+          />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button class="btn btn--primary" type="submit">Send Message</button>
         </form>
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
       <div class="footer__copy">© 2026 Aniruddha Jadhav</div>
       <div class="footer__links">
-        <a href="#" class="footer__link">Linkedin</a>
-        <a href="#" class="footer__link">Github</a>
+        <a
+          href="https://linkedin.com/in/aniruddhapj15/"
+          class="footer__link"
+          target="_blank"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/aniruddha-jadhav-15"
+          class="footer__link"
+          target="_blank"
+          >GitHub</a
+        >
       </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <!-- Main App Script -->
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>
