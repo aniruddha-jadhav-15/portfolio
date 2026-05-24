@@ -1,63 +1,64 @@
 import { projects } from "./data.js";
 
+// Grid container
 const projectsGrid = document.querySelector(".projects__grid");
-if (!projectsGrid) {
-  console.error("Projects grid not found");
-}
+if (!projectsGrid) console.error("Projects grid not found");
 
+// Create single project card
 function createCard(thumb, title, desc, tech, live, github) {
-  const projectCard = document.createElement("div");
-  projectCard.classList.add("card");
+  // Card wrapper
+  const card = document.createElement("div");
+  card.classList.add("card");
 
-  const thumbnailContainer = document.createElement("div");
-  thumbnailContainer.classList.add("project__thumb");
+  // Thumbnail
+  const thumbnail = document.createElement("div");
+  thumbnail.classList.add("project__thumb");
+  const image = document.createElement("img");
+  image.src = thumb;
+  image.alt = title;
+  thumbnail.append(image);
 
-  const projectImage = document.createElement("img");
-  projectImage.src = thumb;
-  thumbnailContainer.append(projectImage);
+  // Title
+  const titleEl = document.createElement("h3");
+  titleEl.classList.add("project__title");
+  titleEl.textContent = title;
 
-  let titleElement = document.createElement("h3");
-  titleElement.classList.add("project__title");
-  titleElement.textContent = title;
+  // Description
+  const descEl = document.createElement("p");
+  descEl.classList.add("project__desc");
+  descEl.textContent = desc;
 
-  let descriptionElement = document.createElement("p");
-  descriptionElement.classList.add("project__desc");
-  descriptionElement.textContent = desc;
-
-  let linksContainer = document.createElement("div");
-  linksContainer.classList.add("project__links");
-
-  let liveAnchor = document.createElement("a");
-  liveAnchor.textContent = "Live";
-  liveAnchor.href = live;
-
-  let githubAnchor = document.createElement("a");
-  githubAnchor.textContent = "Github";
-  githubAnchor.href = github;
-
-  linksContainer.append(liveAnchor, githubAnchor);
-
-  let tagsContainer = document.createElement("div");
+  // Tags
+  const tagsContainer = document.createElement("div");
   tagsContainer.classList.add("project__tags");
-
   tech.forEach((tag) => {
-    let tagElement = document.createElement("span");
-    tagElement.classList.add("tag");
-    tagElement.textContent = tag;
-    tagsContainer.append(tagElement);
+    const tagEl = document.createElement("span");
+    tagEl.classList.add("tag");
+    tagEl.textContent = tag;
+    tagsContainer.append(tagEl);
   });
 
-  projectCard.append(
-    projectImage,
-    titleElement,
-    descriptionElement,
-    tagsContainer,
-    linksContainer,
-  );
+  // Links
+  const linksContainer = document.createElement("div");
+  linksContainer.classList.add("project__links");
+  const liveLink = document.createElement("a");
+  liveLink.textContent = "Live";
+  liveLink.href = live;
+  liveLink.target = "_blank";
+  liveLink.classList.add("live");
+  const githubLink = document.createElement("a");
+  githubLink.textContent = "Github";
+  githubLink.href = github;
+  githubLink.target = "_blank";
+  githubLink.classList.add("github");
+  linksContainer.append(liveLink, githubLink);
 
-  return projectCard;
+  // Assemble card
+  card.append(thumbnail, titleEl, descEl, tagsContainer, linksContainer);
+  return card;
 }
 
+// Render all project cards
 const projectCards = projects.map((p) =>
   createCard(
     p.thumb,
@@ -68,5 +69,4 @@ const projectCards = projects.map((p) =>
     p.github,
   ),
 );
-
 projectsGrid.append(...projectCards);
