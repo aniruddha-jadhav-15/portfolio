@@ -1,10 +1,15 @@
+// ============================================
+// DATA — Local data acting as API source
+// ============================================
+
+// Projects data
 export const projects = [
   {
     id: 1,
     thumb: "./images/shopcart.png",
     projectTitle: "ShopCart",
     projectDesc:
-      "Mini ecommerce app built with vanilla JavaScript. Features product listing, search, filtering, sorting and cart functionality",
+      "Mini ecommerce app built with vanilla JavaScript. Features product listing, search, filtering, sorting and cart functionality.",
     techUsed: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/aniruddha-jadhav-15/mini-ecommerce-app",
     live: "https://shopcart-store.netlify.app/",
@@ -14,7 +19,7 @@ export const projects = [
     thumb: "./images/githubfinder.png",
     projectTitle: "Github Finder",
     projectDesc:
-      "GitHub user search app built with vanilla JavaScript. Fetches live data from GitHub API, displays user profile, repos, followers and following with error handling",
+      "GitHub user search app built with vanilla JavaScript. Fetches live data from GitHub API, displays user profile, repos, followers and following with error handling.",
     techUsed: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/aniruddha-jadhav-15/github-user-finder",
     live: "https://github-user-finder-aniruddha.netlify.app/",
@@ -24,7 +29,7 @@ export const projects = [
     thumb: "./images/weatherapp.png",
     projectTitle: "Weather App",
     projectDesc:
-      "This project demonstrates API integration, dynamic weather data fetching, and interactive frontend functionality using JavaScript.",
+      "Real-time weather app using OpenWeather API. Demonstrates API integration, dynamic data fetching and interactive frontend functionality.",
     techUsed: ["HTML", "CSS", "JavaScript"],
     github:
       "https://github.com/aniruddha-jadhav-15/frontend-mini-projects/tree/main/project-10-Weather-App",
@@ -42,13 +47,10 @@ export const projects = [
   },
 ];
 
+// Skills data
 export const skills = [
-  { id: 1, category: "Core", items: ["HTML5", "CSS3", "Javascript"] },
+  { id: 1, category: "Core", items: ["HTML5", "CSS3", "JavaScript"] },
   { id: 2, category: "Frontend", items: ["React", "Tailwind", "ES6+"] },
-  {
-    id: 3,
-    category: "Tools",
-    items: ["Git", "Github", "Netlify", "Vercel"],
-  },
+  { id: 3, category: "Tools", items: ["Git", "GitHub", "Netlify", "Vercel"] },
   { id: 4, category: "Concepts", items: ["REST API", "Responsive", "DOM"] },
 ];
