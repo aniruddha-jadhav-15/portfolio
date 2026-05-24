@@ -1,34 +1,52 @@
+// Form elements
 const form = document.querySelector("#contactForm");
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const subjectInput = document.querySelector("#subject");
 const messageInput = document.querySelector("#message");
 
+// Toaster elements
+const toasterContainer = document.querySelector("#toaster");
+const toasterMsg = document.querySelector(".toaster__msg");
+
+// Form validation
 form.addEventListener("submit", (e) => {
   if (nameInput.value.trim() === "") {
     e.preventDefault();
-    alert("Name required!");
+    showToaster("Name required!", "error");
     return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(emailInput.value)) {
     e.preventDefault();
-    alert("Valid email required!");
+    showToaster("Valid email required!", "error");
     return;
   }
 
   if (subjectInput.value.trim() === "") {
     e.preventDefault();
-    alert("Subject required!");
+    showToaster("Subject required!", "error");
     return;
   }
 
   if (messageInput.value.trim() === "") {
     e.preventDefault();
-    alert("Message required!");
+    showToaster("Message required!", "error");
     return;
   }
 
-  alert("Message sent successfully!");
+  showToaster("Message sent successfully!", "success");
 });
+
+// Show toaster notification
+function showToaster(message, type) {
+  toasterContainer.style.left = "0";
+  toasterMsg.textContent = message;
+  toasterMsg.classList.add(`toaster--${type}`);
+
+  setTimeout(() => {
+    toasterContainer.style.left = "-300px";
+    toasterMsg.classList.remove("toaster--success", "toaster--error");
+  }, 3000);
+}
